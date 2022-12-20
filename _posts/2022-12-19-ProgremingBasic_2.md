@@ -34,24 +34,24 @@ title:  "프로그래밍 언어 활용"
     - 반환값 : void
     - 구현 : 비교함수는 직접 구현해야 함 (배열의 자료형과 비교방식이 다르기 때문)
 
-    ## 2) 파일 입출력 기초
+## 2) 파일 입출력 기초
 
-    ### 개요
-    - 파일 입출력 : 입력과 출력의 대상이 파일인 경우
-    - 입출력 대상 : 텍스트 파일, 이진 파일
+### 개요
+- 파일 입출력 : 입력과 출력의 대상이 파일인 경우
+- 입출력 대상 : 텍스트 파일, 이진 파일
     
-    ### 라이브러리 함수
-    - 텍스트 파일
-        - 입력 : fgetc, fgets, fscanf
-        - 출력 : fputs, fputs, fprintf
-        - 닫기 : fclose
-    - 이진 파일
-        - 입력 : fread
-        - 출력 : fwrite
+### 라이브러리 함수
+- 텍스트 파일
+    - 입력 : fgetc, fgets, fscanf
+    - 출력 : fputs, fputs, fprintf
+    - 닫기 : fclose
+- 이진 파일
+    - 입력 : fread
+    - 출력 : fwrite
 
-    ### 입출력 과정
-    - 스트림 생성 : fopen
-    - 입출력 : fgets, fputs, fread, fwrite
-    - 스트림 닫기 : fclose
+### 입출력 과정
+- 스트림 생성 : fopen
+- 입출력 : fgets, fputs, fread, fwrite
+- 스트림 닫기 : fclose
 
     
