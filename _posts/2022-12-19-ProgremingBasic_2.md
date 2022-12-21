@@ -33,7 +33,7 @@ title:  "프로그래밍 언어 활용"
     - int (* compar)(const void *, const void *) : 두 요소를 비교하기 위한 함수 포인터
     - 반환값 : void
     - 구현 : 비교함수는 직접 구현해야 함 (배열의 자료형과 비교방식이 다르기 때문)
-
+   
 ## 2) 파일 입출력 기초
 
 ### 개요
@@ -48,7 +48,7 @@ title:  "프로그래밍 언어 활용"
 - 이진 파일
     - 입력 : fread
     - 출력 : fwrite
-
+   
 ### 입출력 과정
 - 스트림 생성 : fopen
 - 입출력 : fgets, fputs, fread, fwrite
