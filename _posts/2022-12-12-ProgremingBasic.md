@@ -1,6 +1,6 @@
 ---
 layout: single
-title:  "프로그래밍 활용 기초"
+title:  "[C] 프로그래밍 활용 기초"
 ---
 
 
