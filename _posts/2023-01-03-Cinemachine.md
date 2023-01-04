@@ -1,6 +1,6 @@
 ---
 layout: single
-title:  "Unity Cinemachine 사용하기"
+title:  "[Unity] Cinemachine 사용하기"
 ---
 
 ## 시네머신이란?
