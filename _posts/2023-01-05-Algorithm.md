@@ -23,6 +23,7 @@ title:  "[알고리즘] 기초 개념"
         - 입력 크기(n)가 커질수록, 알고리즘의 수행시간
     - 공간 복잡도 (space complexity)
 
+
 ## 2) 알고리즘의 수행시간
 ``` c++
 // n에 관계없이 상수 시간이 소요된다.
@@ -37,9 +38,9 @@ sample1(A[], n)
 // n에 비례한 시간이 소요된다.
 sample2(A[], n) 
 { 
-    sum ← 0; 
-    for i ← 1 to n
-    sum← sum+ A[i];
+    sum = 0; 
+    for i = 1 to n:
+        sum = sum + A[i];
     return sum;
 } 
 ```
@@ -48,10 +49,10 @@ sample2(A[], n)
 // n*n에 비례한 시간이 소요된다.
 sample3(A[], n) 
 { 
-    sum ← 0; 
-    for i ← 1 to n
-        for j ← 1 to n 
-            sum← sum+ A[i]*A[j]; 
+    sum = 0; 
+    for i = 1 to n:
+        for j = 1 to n: 
+            sum = sum + A[i] * A[j]; 
     return sum;
 }
 ```
@@ -67,7 +68,7 @@ sample3(A[], n)
 
 ### 점근적 표기법
 - O(f(n)) : Tight or loose upper bound
-![image](https://user-images.githubusercontent.com/55589616/210704492-ee1c6c0f-0ea1-4bd6-a79b-9ee9b274ce19.png)
+![image](https://user-images.githubusercontent.com/55589616/210735263-7b9f80f3-192d-40c2-8e7b-be6caa015811.png)
 
 - Ω(f(n)) : Tight or loose lower bound
 ![image](https://user-images.githubusercontent.com/55589616/210704567-39476ac0-46fa-48ab-bc4e-ad5f101fdb2f.png)
