@@ -81,7 +81,8 @@ title:  "[자료구조] 선형 리스트"
 #define MAX(a,b) ((a>b)?a:b)
 #define MAX_DEGREE 50
 
-typedef struct {
+typedef struct 
+{
 	int degree;             // 차수
 	float coef[MAX_DEGREE]; // 계수
 } polynomial;
@@ -173,7 +174,8 @@ void main()
 ``` c
 #include<stdio.h>
 
-typedef struct {
+typedef struct 
+{
 	int row;
 	int col;
 	int value;
