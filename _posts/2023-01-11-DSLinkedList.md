@@ -1,6 +1,6 @@
 ---
 layout: single
-title:  "[자료구조] 연결 리스트"
+title:  "[자료구조] 연결 리스트 (Linked List)"
 ---
 
 ## 1) 연결 리스트(Linked List)

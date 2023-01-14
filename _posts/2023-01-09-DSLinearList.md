@@ -1,6 +1,6 @@
 ---
 layout: single
-title:  "[자료구조] 선형 리스트"
+title:  "[자료구조] 선형 리스트 (Linear List)"
 ---
 
 ## 1) 리스트
