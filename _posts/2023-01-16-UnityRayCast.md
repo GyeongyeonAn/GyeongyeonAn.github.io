@@ -1,6 +1,6 @@
 ---
 layout: single
-title:  "[Unity] RayCast 사용법"
+title:  "[Unity] Raycast 사용법"
 ---
 
 
