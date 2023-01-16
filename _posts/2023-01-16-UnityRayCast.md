@@ -189,14 +189,14 @@ if (Physics.Raycast(ray, 10, 1<<layerNum))
 }
 ```
 
-### QueryTriggerInteraction
+### trigger collider를 무시하는 법
 - QueryTriggerInteraction 파라미터는 아래 세 가지 중 하나의 값을 가질 수 있다.
     - Ignore - 트리거 콜라이더의 충돌을 무시한다.
     - Collider - 트리거 콜라이더의 충돌을 허용한다.
     - UseGlobal - Physics 옵션에 정의된 기본 값을 따른다
 
 
-### RaycastAll 함수 사용법
+## 5) RaycastAll 함수 사용법
 - Raycast 함수에서 단 하나의 객체에 대한 충돌 정보만 반환하는 대신 RaycastHit 구조체 배열을 이용해 여러 개체에 대한 충돌 정보들을 반환한다. 
 
 ``` c#
@@ -256,7 +256,7 @@ void FireLaser()
 ```
 
 
-### RaycastNonAlloc 함수 사용법
+## 6) RaycastNonAlloc 함수 사용법
 - 외부에서 이미 생성된 배열을 out 파라메터로 재사용 할 수 있어 가비지(garbage)의 발생을 줄인다.
 - 충돌한 객체의 개수를 리턴하지만 그 수는 인자로 넘겨진 배열의 길이 보다는 크지 않다. 
 - 실제 반환된 충돌된 객체의 개수를 알면 리턴된 배열이 가득 차지 않았을 때 빈 요소들을 참조하는 것을 방지할 수 있다.
