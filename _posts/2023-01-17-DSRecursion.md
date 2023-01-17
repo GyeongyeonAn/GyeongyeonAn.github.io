@@ -114,7 +114,7 @@ int Fibonacci(int n)
 
 ![image](https://user-images.githubusercontent.com/55589616/212871825-6de2001b-3c7a-4acb-95a3-316eef877cf3.png)
 
-    - 분할된 오른쪽에 대해서 다시 파티션을 가함: Self-swap(결과 p=3)
+- 분할된 오른쪽에 대해서 다시 파티션을 가함: Self-swap(결과 p=3)
 
 
 ## 7) 재귀 함수의 작성
