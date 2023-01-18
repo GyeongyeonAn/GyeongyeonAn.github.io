@@ -11,7 +11,7 @@ main:
   # - title: "Sitemap"
   #   url: /sitemap/
 
-  sidebar:
+sidebar:
   - title: "데이터 엔지니어"
     children:
       - title: "분야 소개"
