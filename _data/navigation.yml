@@ -3,11 +3,11 @@ main:
   - title: "AWS"
     children:
       - title: "활용 기초"
-        url: https://gyeongyeonan.github.io/DEL_FC_CH02_01/
+        url: https://gyeongyeonan.github.io/AWS/
   - title: "Linux"
     children:
       - title: "활용 기초"
-        url: https://gyeongyeonan.github.io/DEL_FC_CH03_01/        
+        url: https://gyeongyeonan.github.io/Linux/        
   - title: "C"
     children:
       - title: "활용 기초"
@@ -19,9 +19,9 @@ main:
   - title: "Unity"
     children:
       - title: "이론 정리"
-        url: https://gyeongyeonan.github.io/Unity/        
+        url: https://gyeongyeonan.github.io/UnityTheory/       
       - title: "활용 기초"
-        url: https://gyeongyeonan.github.io/Unity_2/                
+        url: https://gyeongyeonan.github.io/UnityCode/                
       - title: "시네머신(Cinemachine) 사용법"
         url: https://gyeongyeonan.github.io/Cinemachine/
       - title: "렌더링 파이프라인"
