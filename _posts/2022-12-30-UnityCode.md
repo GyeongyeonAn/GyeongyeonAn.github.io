@@ -376,8 +376,27 @@ public class InputExample : MonoBehaviour
         {
             Debug.Log("A키를 누르고 있는 동안");
         }
+        if (Input.GetMouseButtonDown(0))
+        {
+            Debug.Log("마우스 왼쪽 버튼 눌렀을 경우");
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            Debug.Log("마우스 왼쪽 버튼 떼었을 경우");
+        }
+        if (Input.GetMouseButton(0))
+        {
+            Debug.Log("마우스 왼쪽 버튼 누르는 동안");
+        }
+        if (Input.GetMouseButtonDown(1))
+        {
+            Debug.Log("마우스 오른쪽 버튼 눌렀을 경우");
+        }
+        if (Input.GetMouseButtonDown(2))
+        {
+            Debug.Log("마우스 휠 버튼 눌렀을 경우");
+        }
     }
-
 }
 ```
 
@@ -424,6 +443,89 @@ public class InputExample : MonoBehaviour
         // - 대각선 버튼(W, A를 동시에 클릭)을 클릭하는 경우 더해지는 값이 커져서 더 빠른 속도로 이동한다.
         // - 정규화를 하게 되면 이러한 속도를 일반적인 속도로 맞춰줄 수 있게 된다.
         transform.Translate(movement.normalized * Time.deltaTime * moveSpeed);
+    }
+}
+```
+
+
+### 마우스로 입력 좌표로 플레이어 이동하기
+- 마우스가 클릭된 좌표의 y 값과 현재 플레이어의 y값을 동일하게 맞춰줘야 한다.
+    - 회전과 이동에 문제 발생을 예방하기 위해
+
+``` c#
+public class MousePickExample : MonoBehaviour
+{
+    public float moveSpeed;
+    public float rotateSpeed;
+    private Vector3 endPos;
+
+    private void Update()
+    {
+        MouseTargetMove();
+    }
+
+    private void MouseTargetMove()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hitInfo;
+            if (Physics.Raycast(ray, out hitInfo, Mathf.Infinity))
+            {
+                if (hitInfo.collider.CompareTag("Ground"))
+                {
+                    endPos = hitInfo.point;
+                }
+            }
+        }
+
+        // 시작점부터 목표점으로 향하는 선 Print
+        Debug.DrawLine(transform.position, endPos, Color.blue);
+        // 자신의 위치에서 전방으로 향하는 선 Print
+        Debug.DrawRay(transform.position, transform.forward, Color.green);
+
+        // 마우스 Ray Position과 Player의 position의 y축 값을 맞춰줘야 한다.
+        // 높이의 오차가 있으면, 회전과 이동에 영향을 주게 된다. 
+        Vector3 tmpEnd = endPos;
+        tmpEnd.y = transform.position.y;
+
+        Vector3 dir = tmpEnd - transform.position;
+        Vector3 newDir = Vector3.RotateTowards(transform.forward, dir.normalized, Time.deltaTime * rotateSpeed, 0f);
+        transform.forward = newDir.normalized;
+
+        // 방향전환 회전을 마친 후에 플레이어 이동하기
+        if (Vector3.Distance(transform.forward, dir.normalized) <= 0.01f)
+            transform.position = Vector3.MoveTowards(transform.position, endPos, Time.deltaTime * moveSpeed);
+    }
+}
+```
+
+
+### 마우스 스크롤로 카메라 시야각 조정
+- Input.GetAxis("Mouse ScrollWheel") 함수로 스크롤에 따른 float값 반환
+- 선형보간을 이용해 움직임 조절 
+
+``` c#
+public class MouseScroll : MonoBehaviour
+{
+    public float scrollVelocity;
+    float t;
+
+    private void Start()
+    {
+        scrollVelocity = 30f;
+    }
+
+    private void Update()
+    {
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+        float a = Camera.main.fieldOfView;
+        float b = Camera.main.fieldOfView + scroll * scrollVelocity;
+        if (scroll != 0)
+            t += Time.deltaTime * 200f;
+        else
+            t = 0;
+        Camera.main.fieldOfView = Mathf.Lerp(a, b, t);
     }
 }
 ```
