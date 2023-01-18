@@ -1,15 +1,5 @@
 # main links
 main:
-  - title: "데이터 엔지니어"
-    children:
-      - title: "분야 소개"
-        url: https://gyeongyeonan.github.io/DEL_FC_CH01_04/
-      - title: "서비스업"
-        url: https://gyeongyeonan.github.io/DEL_FC_CH01_03/
-      - title: "중견기업"
-        url: https://gyeongyeonan.github.io/DEL_FC_CH01_02/
-      - title: "대기업"
-        url: https://gyeongyeonan.github.io/DEL_FC_CH01_01/
   - title: "AWS"
     children:
       - title: "활용 기초"
@@ -24,7 +14,7 @@ main:
         url: https://gyeongyeonan.github.io/ProgremingBasic/        
   - title: "C#"
     children:
-      - title: "기초 개념"
+      - title: "활용 기초"
         url: https://gyeongyeonan.github.io/C-Basic/        
   - title: "Unity"
     children:
