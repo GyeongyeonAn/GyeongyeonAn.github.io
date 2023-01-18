@@ -1,10 +1,10 @@
 ---
 layout: single
-title:  "[Unity] 활용 기초"
+title:  "[Unity] 이론 정리"
 ---
 
 
-## 1) 가비지 콜렉터 (Garbage Collector)
+## 가비지 콜렉터 (Garbage Collector)
 - 가비지 컬렉터란 사용하지 않는 메모리를 자동적으로 회수하는 .Net서비스다.
     - 게임오브젝트에서 컴포넌트를 가져오고자 한다면 GetComponent() 메서드를 사용하고 
     - 추가하고자 한다면 AddComponent() 메서드를 사용한다. 
@@ -15,48 +15,20 @@ title:  "[Unity] 활용 기초"
 - 즉, GetComponent의 사용을 최대한 줄이고, AddComponent는 괜찮다.
 
 
-## 2) 게임 오브젝트 (GameObject)
+## 게임 오브젝트 (GameObject)
 - Unity에서 제공하거나 직접 만든 모든 오브젝트의 자료형을 GameObject라고 한다.
 - GameObject : 클래스(자료형)의 개념
 - gameObject : GameObject에 속해있는 컴포넌트에 접근하기 위한 인스턴스
     - 인스턴스 : 하나의 클래스에서 생성된 객체
 
 
-### 게임 오브젝트 검색
-- 검색은 항상 많은 비용이 예상 되므로 사용 할 때는 주의를 기울여야 한다. 
-- Hierarchy에 올려진 게임오브젝트 개수가 많을 때에는 매 프레임 마다 검색하는 것이 효율적이지 않으므로 검색하고자 하는 오브젝트들을 처음 한번 검색하여 저장 후 시작하는 것을 추천한다.
-- 다양한 검색 방법
-    - Find : GameObject를 이름으로 검색할 할 때, 사용한다. 
-    - FindWithTag : GameObject를 Tag로 검색할 때, 사용한다. 
-    - FindGameObjectsWithTag : 복수개의 GameObject를 Tag로 검색할 때, 사용한다.
-    - FindObjectOfType : Script의 Type으로 검색할 할 때, 사용한다. 
-        - **Type으로 검색할 경우 스크립트의 함수 호출시 GetComponent를 호출하지 않는 장점이 있다.**
-        - **Garbage 수거를 줄일 수 있다.** 
-
-
-``` c#
-public class ObjectFindScript : MonoBehaviour {
-{
-    // 이름으로 찾기
-    GameObject obj = GameObject.Find(string strname);
-    // Tag로 찾기
-    GameObject obj = GameObject.FindWithTag(string strTag); 
-    // Tag로 여러개를 찾기
-    GameObject [] obj = GameObject.FindGameObjectsWithTag(string strTag); 
-    // type으로 찾기
-    // GetComponent를 호출하지 않음으로 가비지 남김을 줄일 수 있다.
-    MyScript obj = (MyScript)FindObjectOfType(typeof(MyScript));
-}
-```
-
-
-## 3) Log 메서드의 종류
+## Log 메서드의 종류
 - DeBug.Log : Console뷰에 메세지 출력
 - DeBug.LogWarning : Console뷰에 경고 메세지 출력
 - DeBug.LogError : Console뷰에 에러 메세지를 출력
 
 
-## 4) 게임 리소스와 프리펩
+## 게임 리소스와 프리펩
 - 게임에서 필요로 하는 그래픽 이미지와 같은 데이터
 - Asset : 유니티 게임에서 사용되는 자원 
 - 게임 리소스를 사용하기 위해서 프리팹(Prefab)이라는 게임 오브젝트를 사용해야 한다. (반드시 프리팹 이어야만 리소스로 사용가능 한 것은 아니다.)
@@ -79,95 +51,7 @@ public class ObjectFindScript : MonoBehaviour {
     - AudioClip
 
 
-### 리소스 불러오기
-- Resources.Load 메서드는 Resources 폴더안에 있는 리소스를 메모리 상에 로드 하지만 화면에 보여지는 것은 아니다. 
-- 화면에 보여주기 위해서는 Intstantiate 메서드로 인스턴스(Instance)를 생성한다.
-- 아래 2번째 코드는 리소스 폴더의 전체 프리팹을 로드 할 경우를 보여준다.
-
-
-``` c#
-public class ResourceLoad : MonoBehaviour {
-
-    private GameObject Ammo_obj;
-    private GameObject Cargo_obj;
-    void Start()
-    {
-        // “Resources/Prefab폴더의 AMMO GameObject 로드
-        GameObject tmp = Resources.Load<GameObject>("Prefab/AMMO");
-
-        // Resources 폴더의 Cargo GameObject 로드
-        GameObject tmp_1 = Resources.Load<GameObject>("Cargo");
-        
-        // 같은 결과 다른 표현들
-        // GameObject tmp = (GameObject)Resources.Load("Prefab/AMMO");
-        // GameObject tmp = Resources.Load("Prefab/AMMO") as GameObject;
-
-        // 화면에 obj 인스턴스 생성
-        Ammo_obj = (GameObject)Instantiate(tmp);
-        Cargo_obj = (GameObject)Instantiate(tmp_1);
-    }
-}
-```
-
-``` c#
-public class ResourcesFolderLoad : MonoBehaviour {
-
-    private GameObject [] HPBOX_obj;
-    void Start()
-    {
-        // “Resources/Prefab폴더의 모든 게임오브젝트 로드
-        GameObject [] tmp = Resources.LoadAll<GameObject>("Prefab");
-
-        // 프리팹 개수 만큼 배열 할당.
-        HPBOX_obj = new GameObject[tmp.Length];
-
-        // 화면에 Prefab폴더안의 모든 프리팹 출력
-        for (int i = 0; i < tmp.Length; i++)
-        {
-            HPBOX_obj[i] = (GameObject)Instantiate(tmp[i]);
-            // 인스턴스 게임오브젝트 이름 변경
-            HPBOX_obj[i].name = "HPBOX_" + i.ToString();
-        }
-    }
-}
-```
-
-
-### 몬스터를 무기와 함께 생성하기
-
-``` c#
-public class ResourceLoadExample : MonoBehaviour
-{
-    private void Start()
-    {
-        // 리소스에 있는 게임오브젝트 불러오기
-        GameObject rcGameObject = Resources.Load<GameObject>("TrollGiant");
-        GameObject weaponObject = Resources.Load<GameObject>("Weapons/Axe_DS");
-
-        // 몬스터 생성하기
-        GameObject monster = Instantiate<GameObject>(rcGameObject);
-        monster.name = "TrollGiant";
-
-        // 무기 생성하기
-        GameObject weapon = Instantiate<GameObject>(weaponObject);
-        weapon.name = "Axe_DS";
-
-        // 몬스터의 오른손 게임오브젝트 가져오기
-        GameObject monsterHR = GameObject.Find("TrollGiant/Bip001/Bip001 Pelvis/Bip001 Spine/Bip001 Spine1/Bip001 Neck/Bip001 R Clavicle/Bip001 R UpperArm/Bip001 R Forearm/Bip001 R Hand/HR");
-
-        // 무기를 몬스터의 오른손 위치로 이동하기
-        // 좌표 설정 후에 부모로 설정하는 순서를 지켜야 위치가 정확하게 맞춰진다.
-        weapon.transform.position = monsterHR.transform.position;
-        weapon.transform.eulerAngles = monsterHR.transform.eulerAngles;
-        weapon.transform.SetParent(monsterHR.transform);
-    }
-}
-```
-
-![image](https://user-images.githubusercontent.com/55589616/213094783-6bae5635-4ffa-493e-8b7b-b1f650178c90.png)
-
-
-## 5) 이벤트 함수
+## 이벤트 함수
 - 활성화 / 비활성화
     - gameObject.SetActive(false)와 this.enabled = false는 다르다.
         - gameObject.SetActive(false) : 게임오브젝트 자체를 비활성화
@@ -211,10 +95,11 @@ public class ResourceLoadExample : MonoBehaviour
     - Application 종료 시 호출 되는 함수
 
 
+### 실행 순서
 ![image](https://user-images.githubusercontent.com/55589616/209093883-f8650386-6c7d-4701-9dfe-cb95a2a6c320.png)
 
 
-## 6) 시간 제어
+## 시간 제어
 - Time.deltaTime
     - 마지막 프레임을 완료하는 데 걸린 시간 (초)
     - 다음 업데이트 호출까지의 간격
@@ -232,82 +117,7 @@ public class ResourceLoadExample : MonoBehaviour
         - 보스 몬스터를 처치 하였을 경우 보상을 받는 상황일 때, Time.timeScale값을 조절하여 원하는 연출을 할 수 있다.
 
 
-``` c#
-public class TimerTest : MonoBehaviour {
-    public float fSpeed = 10f;
-    // Time.time 용
-    float curTime;
-    // Time.deltaTime 용
-    float fSum = 0;
-
-    void Start () 
-    {
-        curTime = Time.time;
-    }
-
-    void PerSecond()
-    {
-        // 1초당 한번씩, Time.time을 이용
-        if ( Time.time - curTime >= 1.0f )
-        {
-            curTime = Time.time;
-        }
-
-        // 1초당 한번씩, deltatTime을 이용
-        // 만약, 1초의 기준이 Update의 한 프레임으로 사용한다면
-        fSum += Time.deltaTime;
-        if (fSum - 1f >= 0)
-        {
-            fSum = 0f;
-        }
-    }
-
-    void Update () 
-    {
-        PerSecond();
-    }
-}
-```
-
-
-### 1초 간격 정밀하게 구현하기
-- 코루틴을 사용하여 시간을 제어하는 방법도 있지만, Update에서 시간을 제어하는 방법을 택하는 것이 좋다.
-- 시간 제어를 정밀하게 구현해야하는 이유
-    - 랜더링은 1초가 늦어져도 큰 문제는 없겠지만, 데이터는 무결성을 만족해야한다.
-    - 1초마다의 데이터의 변화는 중요하고 예민한 문제이다.
-    - 자체 엔진을 사용하는 기업들은 랜더링과 데이터를 따로 제어할 수 있는데, 
-    - Unity에서는 Update라는 한 프레임 단위에서 함께 관리하기 때문에, 시간제어가 중요하다.
-
-
-``` c#
-public class UpdateExample : MonoBehaviour
-{
-    float elapsed;
-    float oldTime;
-
-    void Start()
-    {
-        elapsed = 0;
-        oldTime = Time.time;
-    }
-
-    void Update()
-    {
-        // 1초 간격 안정적으로 구현하기
-        elapsed = Time.time - oldTime;
-        if(elapsed >= 1f)
-        {
-            // 1초마다 실행할 기능을 넣어준다.
-            // .............................
-            // 소주점까지 고려한다면 elapsed - 1f 값을 더해준다.
-            oldTime = Time.time + elapsed - 1f;
-        }
-    }
-}
-```
-
-
-## 7) 벡터
+## 벡터
 - 벡터
     - 크기와 방향을 갖는다
     - 방향은 부호를 의미
@@ -326,28 +136,6 @@ public class UpdateExample : MonoBehaviour
 - 벡터의 곱하기는 내적, 외적 2종류가 있다.
 
 
-``` c#
-public class DerectionVector3 : MonoBehaviour {
-    Vector3 vStart;
-    Vector3 vEnd = Vector3.zero;
-    Vector3 vDir = Vector3.zero;
-
-    void Start()
-    {
-        // 주어진 시작점에서 주어진 끝점까지의 방향벡터 구하기
-        vStart = new Vector3(-3f, 2f, 4f);
-        vEnd = new Vector3(10f, 10f, 10f);
-        vDir = vEnd - vStart;
-        Debug.Log(vDir.normalized);
-
-        // 현재 위치에서 주어진 끝점까지의 방향벡터 구하기
-        vDir = vEnd - transform.position;
-        Debug.Log(vDir.normalized);
-    }
-}
-```
-
-
 ### 벡터의 내적 (Dot Product)
 - 기호 • (dot 라고 읽는다)
 - 두 벡터의 방향관계를 계산할때 사용 (cos값을 얻을 수 있어서 각도를 구할 수 있다 )
@@ -361,13 +149,14 @@ public class DerectionVector3 : MonoBehaviour {
         - 벡터의 내적의 반환값은 각도가 아니며 각도를 구하기 위해서는 아크코사인 연산을 해야 한다
         - 게임오브젝트의 앞, 뒤 판정 할 때 사용
     - 유니티 Vector3.Angle()함수 사용
-        -  Angle함수를 사용하지만 내부적으로는 내적을 연산한다.
+        - Angle함수를 사용하지만 내부적으로는 내적을 연산한다.
         - 각도를 리턴(반환)
 
 
 ![image](https://user-images.githubusercontent.com/55589616/210039097-afafb845-82dd-469f-9582-874517489664.png)
 
 
+### 게임 오브젝트 앞, 뒤 판정하기
 ``` c#
 public Transform other;
 void Update() 
@@ -390,28 +179,7 @@ void Update()
 - 두 벡터에 수직인 벡터를 구할때 사용
 
 
-## 8) 게임 오브젝트의 위치, 회전, 크기
-- 인스펙터 창에 있는 게임오브젝트의 Transform의 각 값은 지역 좌표이다.
-
-
-``` c#
-public class Vector3Example : MonoBehaviour {
-    void Start()
-    {
-        Vector3 tmpPos = new Vector3(10f, 10f, 10f);
-        Debug.Log("tmpPos의 값 = " + tmpPos.x + tmpPos.y + tmpPos.z);
-        Debug.Log("이름 = " + gameObject.name);
-        Debug.Log("전역좌표 = " + transform.position);
-        Debug.Log("지역좌표 = " + transform.localPosition);
-        Debug.Log("전역회전값(도단위) = " + transform.eulerAngles);
-        Debug.Log("지역회전값(도단위) = " + transform.localEulerAngles);
-        Debug.Log("크기 = " + transform.localScale);
-    }
-}
-```
-
-
-## 9) 월드 변환 행렬
+## 월드 변환 행렬
 - 이동행렬(T), 회전행렬(R), 크기행렬(S)
 - 월드에 게임오브젝트가 올려질때 월드변환행렬이 적용된다.
 - 변환행렬은 S * R * T 또는 T * R * S 순으로 곱해야 한다.
@@ -430,3 +198,85 @@ public class Vector3Example : MonoBehaviour {
 
     ![image](https://user-images.githubusercontent.com/55589616/210024607-5c9dd962-1e75-40ec-bfee-778b18f3663c.png)
 
+
+## 사원수 (Quaternion)
+- 3차원 공간 회전을 표현하는 여러가지 방법중의 하나
+- 임의의 카메라 조작이나 키프레임 애니메이션의 보간(interpolation)등에 사용
+- 보간 (interpolation)
+    - 중간값을 만들어 내는 것
+    - 선형 보간
+        - Mathf.Lerp()      // 숫자 간의 선형 보간
+            - 공식 : (1 - t)a + tb (t: 시간)
+        - Vector3.Lerp()    // Vector3간의 선형 보간
+        - 끝점의 값이 주어졌을 때 그 사이의 위치값을 추정하기 위하여 직선 거리에 따라 선형적으로 계산하는 방법
+    - 구면 선형 보간
+        - Mathf.SLerp()      // 숫자 간의 구면 선형 보간
+        - Vector3.SLerp()    // Vector3간의 구면 선형 보간
+        - 구의 면을 따라서 보간을 계산
+- 짐벌락(Gimbal-Lock)을 해결
+    - X축을 90도 회전한다고 가정한다면 Y축 또는 Z축이 될 수 있다.
+    - 회전축이 겹쳐짐으로 인하여 원하지 않는 계산결과가 나오는 현상
+- 계산의 효율이 좋고, 메모리를 적게 사용.
+
+
+### 사원수의 사용
+- 사원수 변환은 4개의 요소로 이루어진 사원수 만을 이용하여 임의의 회전축에 대한 변환을 효율적으로 표현할 수 있다.
+- 게임에서 사원수 변환을 적용하려면 최종적으로 행렬의 형태로 변환해서 사용해야 한다. (DirectX)
+- 오일러 방식의 회전값 : transform.eulerAngles, transform.localEulerAngles
+- 쿼터니언 방식의 회전값 : transform.rotation
+
+![image](https://user-images.githubusercontent.com/55589616/210026336-49f16b4a-30ed-436a-97a8-c8e642187a57.png)
+
+
+## 가시성 판단
+- 화면에 보여지는 것과 보여지지 않는것을 판단
+- 화면에 보이지 않는 데이터
+    - 메시(Mesh)의 뒷면
+    - 시야 절두체(MainCamera의 시야)에 포함되지 않는 메시나 면
+    - 다른 메시에 가려진 메시나 면
+- 가시성 판단은 게임의 속도를 높이기 위해서 사용하는 기술
+- 필요없는 데이터를 그리지 않는다.
+- 컬링(Culling) : 그려지는(랜더링) 부분을 구분
+    - 절두체컬링 : 랜더링 되는 부분 
+    - 오큘루전컬링 : 가려진 부분을 랜더링하지 않는 것
+
+
+### 노멀(normal) 벡터
+- 면은 앞뒤가 존재한다.
+- 앞뒤를 구분하는 기준은 normal벡터이다.
+    - 노멀 벡터가 향하는 방향이 앞면이다.
+- 면에 수직인 벡터
+- 법선벡터
+- 노멀 벡터 3개가 선을 이루어 삼각형을 만들고, 삼각형을 메시가 랜더링한다.
+    - 메시는 삼각형으로 이루어지기 때문에, 모서리에 위치한 노멀은 단순히 해당 삼각형의 표면에 수직이라고 볼 수도 있다. 
+    - 하지만 노멀 벡터는 실제로 해당 삼각형 전체에 걸쳐 보간된 모서리 사이의 중간 위치 표면에 방향을 지정해 준다. 
+    - 만약 세 개의 노멀 모두가 같은 방향을 가리킨다면 이 삼각형 전체에 조명이 균등하게 주어진다.
+- 유니티의 모든 게임오브젝트는 정점 3개가 이어져 그려진 여러개의 삼각형으로 이루어져있다.
+- 노멀벡터의 개수가 많을 수록, 곡선을 만들 수 있고, 정교한 색과 명암을 구현할 수 있다.
+
+![image](https://user-images.githubusercontent.com/55589616/210029766-faf49b55-4246-4f7d-970c-29725c2a575d.png)
+
+
+## 물리 연산
+- 유니티는 랜더링 시스템과 물리 시스템이 구분되어져 있다.
+    - 랜더링 시스템 : 눈에 보여지는 것을 다루는 시스템
+    - 물리 시스템 : 물리량을 다루는 시스템
+    - 생각해야 할 점 : 빠른 물체의 이동속도를 갖는 발사체와 같은 충돌을 효과적으로 구현하기 위한 방법
+- 특정 목표지점 또는 방향으로 날아가는 물체 (힘, 속도, 위치계산)
+- 구현 방법 : Physics 클래스를 이용
+    - 물체의 움직임을 현실적으로 표현하기 위한 물리 시스템.
+    - 구성요소
+        - RigidBody(강체) : 질량(mass), 저항(Drag), 중력(Gravity)
+        - Collider : 물리재질, 마찰(Friction), 반동(Bounciness)
+
+
+### RigidBody 컴포넌트
+![image](https://user-images.githubusercontent.com/55589616/210294983-31c2bf9c-7a3b-4aad-b60a-9e85f9d35d75.png)
+![image](https://user-images.githubusercontent.com/55589616/210295024-5042db1c-4416-4004-a388-f0c28613ab08.png)
+
+
+### Collider 컴포넌트
+- Shpere Colider가 충돌 연산량이 제일 적다. (두 원의 반지름 사이의 거리 < 두 원의 반지름의 합)
+- Collider의 충돌을 감지하기 위해서는 rigidbody가 필요하다.
+
+![image](https://user-images.githubusercontent.com/55589616/210295081-415f5875-a66a-4668-ba95-5d30e91c905c.png)

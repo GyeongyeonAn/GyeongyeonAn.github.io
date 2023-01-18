@@ -18,9 +18,9 @@ main:
         url: https://gyeongyeonan.github.io/C-Basic/        
   - title: "Unity"
     children:
-      - title: "활용 기초"
+      - title: "이론 정리"
         url: https://gyeongyeonan.github.io/Unity/        
-      - title: "활용 기초 2"
+      - title: "활용 기초"
         url: https://gyeongyeonan.github.io/Unity_2/                
       - title: "시네머신(Cinemachine) 사용법"
         url: https://gyeongyeonan.github.io/Cinemachine/
