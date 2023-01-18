@@ -10,3 +10,73 @@ main:
   #   url: /collection-archive/
   # - title: "Sitemap"
   #   url: /sitemap/
+
+  sidebar-sample:
+  - title: "데이터 엔지니어"
+    children:
+      - title: "분야 소개"
+        url: https://gyeongyeonan.github.io/DEL_FC_CH01_04/
+      - title: "서비스업"
+        url: https://gyeongyeonan.github.io/DEL_FC_CH01_03/
+      - title: "중견기업"
+        url: https://gyeongyeonan.github.io/DEL_FC_CH01_02/
+      - title: "대기업"
+        url: https://gyeongyeonan.github.io/DEL_FC_CH01_01/
+  - title: "AWS"
+    children:
+      - title: "활용 기초"
+        url: https://gyeongyeonan.github.io/DEL_FC_CH02_01/
+  - title: "Linux"
+    children:
+      - title: "활용 기초"
+        url: https://gyeongyeonan.github.io/DEL_FC_CH03_01/        
+  - title: "C"
+    children:
+      - title: "활용 기초"
+        url: https://gyeongyeonan.github.io/ProgremingBasic/        
+  - title: "C#"
+    children:
+      - title: "기초 개념"
+        url: https://gyeongyeonan.github.io/C-Basic/        
+  - title: "Unity"
+    children:
+      - title: "활용 기초"
+        url: https://gyeongyeonan.github.io/Unity/        
+      - title: "활용 기초 2"
+        url: https://gyeongyeonan.github.io/Unity_2/                
+      - title: "시네머신(Cinemachine) 사용법"
+        url: https://gyeongyeonan.github.io/Cinemachine/
+      - title: "렌더링 파이프라인"
+        url: https://gyeongyeonan.github.io/Pipeline/            
+      - title: "Raycast 사용법"
+        url: https://gyeongyeonan.github.io/UnityRayCast/             
+  - title: "DB"
+    children:
+      - title: "기초 개념"
+        url: https://gyeongyeonan.github.io/DB/        
+  - title: "자료구조"
+    children:
+      - title: "기초 개념"
+        url: https://gyeongyeonan.github.io/DS/        
+      - title: "기본적인 수학"
+        url: https://gyeongyeonan.github.io/DSMath/        
+      - title: "선형 리스트(Linear List)"
+        url: https://gyeongyeonan.github.io/DSLinearList/        
+      - title: "연결 리스트(Linked List)"
+        url: https://gyeongyeonan.github.io/DSLinkedList/        
+      - title: "스택(Stack)"
+        url: https://gyeongyeonan.github.io/DSStack/   
+      - title: "큐(Queue)"
+        url: https://gyeongyeonan.github.io/DSQueue/   
+      - title: "재귀호출(Recursion)"
+        url: https://gyeongyeonan.github.io/DSRecursion/   
+      - title: "트리(Tree)"
+        url: https://gyeongyeonan.github.io/DSTree/   
+  - title: "알고리즘"
+    children:
+      - title: "기초 개념"
+        url: https://gyeongyeonan.github.io/Algorithm/      
+  - title: "Unreal"
+    children:
+      - title: "활용 기초"
+        url: https://gyeongyeonan.github.io/Unreal/        
