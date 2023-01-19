@@ -22,12 +22,16 @@ main:
         url: https://gyeongyeonan.github.io/UnityTheory/       
       - title: "활용 기초"
         url: https://gyeongyeonan.github.io/UnityCode/                
-      - title: "시네머신(Cinemachine) 사용법"
-        url: https://gyeongyeonan.github.io/Cinemachine/
       - title: "렌더링 파이프라인"
         url: https://gyeongyeonan.github.io/Pipeline/            
       - title: "Raycast 사용법"
-        url: https://gyeongyeonan.github.io/UnityRayCast/             
+        url: https://gyeongyeonan.github.io/UnityRayCast/         
+  - title: "Unity 2D"
+    children:                  
+      - title: "시네머신(Cinemachine) 사용법"
+        url: https://gyeongyeonan.github.io/Cinemachine/     
+      - title: "Sprite Filter Mode"
+        url: https://gyeongyeonan.github.io/Sprite/     
   - title: "DB"
     children:
       - title: "기초 개념"
