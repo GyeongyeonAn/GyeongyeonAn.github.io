@@ -1,6 +1,6 @@
 ---
 layout: single
-title:  "[Unity] 스크립터블 오브젝트 (ScriptableObject)"
+title:  "[Unity] ScriptableObject"
 ---
 
 
