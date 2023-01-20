@@ -257,6 +257,73 @@ void Update()
 ![image](https://user-images.githubusercontent.com/55589616/210029766-faf49b55-4246-4f7d-970c-29725c2a575d.png)
 
 
+### Mesh(메쉬)
+- 메쉬(Mesh) : 점과 면으로 이루어진 게임오브젝트를 구성하는 덩어리
+- 메쉬(Mesh)의 구성요소
+    - 정점(Vertex)
+    - 폴리곤을 구성하는 정점 인덱스
+    - 정점 노멀벡터(Vertex Nomal Vector)
+    - UV 좌표
+        - Texture를 연산할때 사용하는 좌표
+        - 이미지의 크기가 정규화된 좌표
+- Mesh Filter 컴포넌트에 Mesh가 존재
+    - Mesh Renderer를 사용하는 경우
+- 인간형 캐릭터와 같은 모델구조를 갖는 게임 오브젝트
+    - Skinned Mesh Renderer 내부에 포함
+
+``` c#
+public class Plane : MonoBehaviour
+{
+    private void Start()
+    {
+        // 빈 게임오브젝트 Plane이라는 이름으로 생성
+        GameObject obj = new GameObject("Plane");
+        MeshRenderer meshRenderer = obj.AddComponent<MeshRenderer>();
+        MeshFilter meshFilter = obj.AddComponent<MeshFilter>();
+
+        Mesh mesh = new Mesh();
+
+        // 정점(Vertex)
+        Vector3[] vertices = new Vector3[4];
+        vertices[0] = new Vector3(-0.5f, 0, 0);
+        vertices[1] = new Vector3(0.5f, 0, 0);
+        vertices[2] = new Vector3(-0.5f, 1f, 0);
+        vertices[3] = new Vector3(0.5f, 1f, 0);
+        mesh.vertices = vertices;
+
+        // 폴리곤을 구성하는 정점 인덱스
+        // 정점의 Index값을 가진다.
+        int[] tri = new int[6];
+        tri[0] = 0;
+        tri[1] = 2;
+        tri[2] = 3;
+        tri[3] = 0;
+        tri[4] = 3;
+        tri[5] = 1;
+        mesh.triangles = tri;
+
+        // 정점의 노말 벡터
+        Vector3[] normals = new Vector3[4];
+        normals[0] = -Vector3.forward;
+        normals[1] = -Vector3.forward;
+        normals[2] = -Vector3.forward;
+        normals[3] = -Vector3.forward;
+        mesh.normals = normals;
+
+        // uv 좌표
+        Vector2[] uv = new Vector2[4];
+        uv[0] = new Vector2(0, 0);
+        uv[1] = new Vector2(1, 0);
+        uv[2] = new Vector2(0, 1);
+        uv[3] = new Vector2(1, 1);
+        mesh.uv = uv;
+
+        meshFilter.mesh = mesh;
+    }
+}
+```
+
+
 ## 물리 연산
 - 유니티는 랜더링 시스템과 물리 시스템이 구분되어져 있다.
     - 랜더링 시스템 : 눈에 보여지는 것을 다루는 시스템
