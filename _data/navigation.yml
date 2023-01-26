@@ -60,6 +60,8 @@ main:
         url: https://gyeongyeonan.github.io/DSTree/
       - title: "히프(Heap)"
         url: https://gyeongyeonan.github.io/DSHeap/  
+      - title: "균형 탐색 트리(AVL)"
+        url: https://gyeongyeonan.github.io/DSAVL/  
   - title: "알고리즘"
     children:
       - title: "기초 개념"
@@ -68,4 +70,3 @@ main:
     children:
       - title: "활용 기초"
         url: https://gyeongyeonan.github.io/Unreal/        
-
