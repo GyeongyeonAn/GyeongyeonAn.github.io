@@ -27,7 +27,9 @@ main:
       - title: "Raycast 사용법"
         url: https://gyeongyeonan.github.io/UnityRayCast/
       - title: "ScriptableObject"
-        url: https://gyeongyeonan.github.io/ScriptableObject/      
+        url: https://gyeongyeonan.github.io/ScriptableObject/
+      - title: "StateMachineBehaviour"
+        url: https://gyeongyeonan.github.io/UnityStateMachineBehaviour/ 
   - title: "Unity 2D"
     children:                  
       - title: "시네머신(Cinemachine) 사용법"
