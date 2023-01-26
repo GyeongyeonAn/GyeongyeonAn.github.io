@@ -57,7 +57,9 @@ main:
       - title: "재귀호출(Recursion)"
         url: https://gyeongyeonan.github.io/DSRecursion/   
       - title: "트리(Tree)"
-        url: https://gyeongyeonan.github.io/DSTree/   
+        url: https://gyeongyeonan.github.io/DSTree/
+      - title: "히프(Heap)"
+        url: https://gyeongyeonan.github.io/DSHeap/  
   - title: "알고리즘"
     children:
       - title: "기초 개념"
