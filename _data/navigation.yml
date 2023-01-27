@@ -62,6 +62,8 @@ main:
         url: https://gyeongyeonan.github.io/DSHeap/  
       - title: "균형 탐색 트리(AVL)"
         url: https://gyeongyeonan.github.io/DSAVL/  
+      - title: "선택/버블 정렬"
+        url: https://gyeongyeonan.github.io/DSSort/  
   - title: "알고리즘"
     children:
       - title: "기초 개념"
