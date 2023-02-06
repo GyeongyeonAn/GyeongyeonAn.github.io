@@ -71,7 +71,7 @@ main:
   - title: "알고리즘"
     children:
       - title: "기초 개념"
-        url: https://gyeongyeonan.github.io/Algorithm/      
+        url: https://gyeongyeonan.github.io/AG/      
   - title: "Unreal"
     children:
       - title: "활용 기초"
