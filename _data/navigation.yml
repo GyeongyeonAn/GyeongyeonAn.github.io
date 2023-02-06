@@ -66,6 +66,8 @@ main:
         url: https://gyeongyeonan.github.io/DSSort/  
       - title: "퀵/삽입/히프/트리 정렬"
         url: https://gyeongyeonan.github.io/DSQuickSort/  
+      - title: "쉘/병합/기수 정렬"
+        url: https://gyeongyeonan.github.io/DSShellSort/  
   - title: "알고리즘"
     children:
       - title: "기초 개념"
