@@ -32,12 +32,6 @@ title:  "[게임 프로젝트] #1 Player 움직임을 구현하자"
 ![image](https://github.com/GyeongyeonAn/Unity-RPG-2D-Game/assets/55589616/6dbdd00d-fcaa-4c3f-99d8-206b31f5b20b)
 
 
-주인공 캐릭터를 필드에 올려보자
-임시 필드를 Plane로 만들고 Player Prefab을 필드에 올린다.
-
-![image](https://github.com/GyeongyeonAn/OpenWorldGame/assets/55589616/7cab89dc-ccdb-449f-8fb4-6d9b10f8f7c3)
-
-
 # 목표 
 Player Movement 구현하기
 상하좌우 이동 : w a s d
