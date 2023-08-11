@@ -79,4 +79,9 @@ main:
   - title: "게임 프로젝트"
     children:
       - title: "#1 Player 움직임을 구현하자"
-        url: https://gyeongyeonan.github.io/Unreal/        
+        url: https://gyeongyeonan.github.io/GPTesk1/ 
+      - title: "#2 Player 애니메이션 적용하기"
+        url: https://gyeongyeonan.github.io/GPTesk2/ 
+
+
+               
