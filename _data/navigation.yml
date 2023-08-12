@@ -81,7 +81,9 @@ main:
       - title: "#1 Player 움직임을 구현하자"
         url: https://gyeongyeonan.github.io/GPTesk1/ 
       - title: "#2 Player 애니메이션 적용하기"
-        url: https://gyeongyeonan.github.io/GPTesk2/ 
+        url: https://gyeongyeonan.github.io/GPTesk2/
+      - title: "#3 3인칭 쿼터뷰 시점의 카메라 기능 구현"
+        url: https://gyeongyeonan.github.io/GPTesk3/ 
 
 
                
