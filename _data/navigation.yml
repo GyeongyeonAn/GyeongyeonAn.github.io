@@ -87,7 +87,7 @@ main:
   - title: "Refactoring"
     children:
       - title: "[Refactoring] #1 유니티 C# 리팩토링 규칙"
-        url: https://gyeongyeonan.github.io/Refactoring#1/ 
+        url: https://gyeongyeonan.github.io/Refactoring1/ 
       - title: "[Refactoring] #2 GameManager 클래스 리팩토링"
-        url: https://gyeongyeonan.github.io/Refactoring#2/ 
+        url: https://gyeongyeonan.github.io/Refactoring2/ 
                
