@@ -84,6 +84,9 @@ main:
         url: https://gyeongyeonan.github.io/GPTesk2/
       - title: "#3 3인칭 쿼터뷰 시점의 카메라 기능 구현"
         url: https://gyeongyeonan.github.io/GPTesk3/ 
-
+  - title: "Refactoring"
+    children:
+      - title: "[Refactoring] #1 유니티 C# 리팩토링 규칙"
+        url: https://gyeongyeonan.github.io/Refactoring#1/ 
 
                
