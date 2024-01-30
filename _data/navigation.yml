@@ -30,6 +30,8 @@ main:
         url: https://gyeongyeonan.github.io/ScriptableObject/
       - title: "StateMachineBehaviour"
         url: https://gyeongyeonan.github.io/UnityStateMachineBehaviour/ 
+      - title: "모바일 빌드"
+        url: https://gyeongyeonan.github.io/UnityMobileBuild/ 
   - title: "Unity 2D"
     children:                  
       - title: "시네머신(Cinemachine) 사용법"
