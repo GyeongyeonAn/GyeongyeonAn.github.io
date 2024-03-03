@@ -96,3 +96,7 @@ main:
     children:
       - title: "[PixelArt] 캐릭터 그리기 연습"
         url: https://gyeongyeonan.github.io/PixelArt1/ 
+  - title: "WPF"
+    children:
+      - title: "[네트워크] TCP 통신 - 서버"
+        url: https://gyeongyeonan.github.io/NetWorkTCPServer/
