@@ -4,7 +4,8 @@ title:  "[Network] TCP 통신 서버"
 ---
 
 
-### 클라이언트 데이터
+## 클라이언트 데이터
+
 ``` c#
 using System;
 using System.Collections.Generic;
@@ -44,7 +45,8 @@ namespace ServerPractice2
 }
 ```
 
-### 메인
+## 메인
+
 ``` c#
 using System;
 using System.Collections.Generic;
@@ -66,7 +68,8 @@ namespace ServerPractice2
 
 ```
 
-### Server
+## 서버
+
 ``` c#
 using System;
 using System.Collections.Generic;
