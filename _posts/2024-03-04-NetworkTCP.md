@@ -1,6 +1,6 @@
 ---
 layout: single
-title:  "[네트워크] TCP 통신 - 서버"
+title:  "[Network] TCP 통신 서버"
 ---
 
 
